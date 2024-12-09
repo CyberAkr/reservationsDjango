@@ -11,6 +11,18 @@ def index(request):
 	return render(request, 'artist/index.html', {
 		'artists' : artists,
 	})
+def create(request):
+	form = ArtistForm(request.POST or None)
+	
+	if request.method == 'POST':
+		if form.is_valid():
+			form.save()
+			
+			return redirect('catalogue:artist-index')
+
+	return render(request, 'artist/create.html', {
+		'form' : form,
+	})
 
 def show(request, artist_id):
 	try:
