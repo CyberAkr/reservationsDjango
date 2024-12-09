@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import include, path
 from catalogue.models import Artist
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 admin.site.register(Artist)
 
 urlpatterns = [
+    
+        path('', TemplateView.as_view(template_name='home.html'), name='home'),
         path('accounts/', include('django.contrib.auth.urls')),
-    path('catalogue/', include('catalogue.urls')),
+        path('accounts/', include('django.contrib.auth.urls')),
+        path('catalogue/', include('catalogue.urls')),
         path(
         "admin/password_reset/",
         auth_views.PasswordResetView.as_view(
