@@ -46,6 +46,17 @@ def create(request):
 	return render(request, 'artist/create.html', {
 		'form' : form,
 	})
+def delete(request, artist_id):
+    artist = get_object_or_404(Artist, id = artist_id)
+
+    if request.method =="POST":
+        artist.delete()
+
+        return redirect('catalogue:artist-index')
+
+    return render(request, 'artist/show.html', {
+		'artist' : artist,
+	})
 
 def edit(request, artist_id):
 	# fetch the object related to passed id
@@ -68,4 +79,5 @@ def edit(request, artist_id):
 		'form' : form,
 		'artist' : artist,
 	})
+ 
 
