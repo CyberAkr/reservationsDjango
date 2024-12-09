@@ -136,3 +136,6 @@ LOGOUT_REDIRECT_URL = 'home'
 # Email configuration
 # https://docs.djangoproject.com/fr/5.1/topics/email/#smtp-backend
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# Email configuration
+# https://docs.djangoproject.com/fr/5.1/topics/email/#smtp-backend
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
