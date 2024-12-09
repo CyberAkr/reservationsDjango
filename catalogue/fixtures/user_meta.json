@@ -1,0 +1,20 @@
+
+    [
+        {
+            "model": "catalogue.usermeta",
+            "pk": 1,
+            "fields": {
+                "user": 4,
+                "langue": "en"
+            }
+        },
+        {
+            "model": "catalogue.usermeta",
+            "pk": 2,
+            "fields": {
+                "user": 1,
+                "langue": "fr"
+            }
+        }
+        ]
+        

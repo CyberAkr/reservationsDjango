@@ -8,8 +8,8 @@ from django.contrib.auth.decorators import user_passes_test
 from django.core.exceptions import PermissionDenied
 from catalogue.utils import admin_check
 
-
 from catalogue.models import Artist
+
 from catalogue.forms import ArtistForm
 
 #...
