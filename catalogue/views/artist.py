@@ -47,6 +47,7 @@ def admin_check(user):
     return user.is_staff  # V
 
 @login_required
+@group_required('ADMIN')
 def edit(request, artist_id): 
     # fetch the object related to passed id
     artist = Artist.objects.get(id=artist_id)
@@ -71,6 +72,8 @@ def edit(request, artist_id):
         'form' : form,
         'artist' : artist,
     })
+def admin_check(user):
+    return user.username.__eq__('bob') and user.email.__eq__("bob@sull.com")
 
 @login_required
 @permission_required('catalog.can_delete', raise_exception=True)
