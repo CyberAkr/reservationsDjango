@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
 from django.core.exceptions import PermissionDenied
 from catalogue.utils import admin_check
-
+from django.conf import settings
 from catalogue.models import Artist
 
 from catalogue.forms import ArtistForm
@@ -26,6 +26,9 @@ def group_required(group_name):
 
 @user_passes_test(admin_check)
 def create(request):
+    if not request.user.is_authenticated or not request.user.has_perm('add_artist'):
+        return redirect(f"{settings.LOGIN_URL}?next={request.path}")
+
     form = ArtistForm(request.POST or None)
     
     if request.method == 'POST':
