@@ -9,7 +9,6 @@ from django.core.exceptions import PermissionDenied
 from catalogue.utils import admin_check
 from django.conf import settings
 from catalogue.models import Artist
-
 from catalogue.forms import ArtistForm
 
 #...
@@ -48,7 +47,6 @@ def admin_check(user):
     return user.is_staff  # V
 
 @login_required
-@group_required('ADMIN')
 def edit(request, artist_id): 
     # fetch the object related to passed id
     artist = Artist.objects.get(id=artist_id)
